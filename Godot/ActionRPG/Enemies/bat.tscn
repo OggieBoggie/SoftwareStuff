@@ -1,0 +1,123 @@
+[gd_scene load_steps=19 format=3 uid="uid://ct0o65kuk6o1x"]
+
+[ext_resource type="Texture2D" uid="uid://btn2xj8x6fovu" path="res://Enemies/Bat.png" id="1_k0o3q"]
+[ext_resource type="Script" path="res://Enemies/bat.gd" id="1_r8vla"]
+[ext_resource type="PackedScene" uid="uid://b3ka5xybokf4h" path="res://Hurtboxes + Hitboxes/hurtbox.tscn" id="4_odm6i"]
+[ext_resource type="PackedScene" uid="uid://4g1c8cu88rc4" path="res://stats.tscn" id="5_ro6n3"]
+[ext_resource type="PackedScene" uid="uid://csj06a3osne58" path="res://Enemies/player_detection.tscn" id="6_gme2d"]
+[ext_resource type="PackedScene" uid="uid://cm1wsdlhm3lxw" path="res://Hurtboxes + Hitboxes/hitbox.tscn" id="7_pwsu8"]
+[ext_resource type="PackedScene" uid="uid://mg3n844li70k" path="res://Hurtboxes + Hitboxes/soft_collision.tscn" id="8_xxjvk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpsb0"]
+atlas = ExtResource("1_k0o3q")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umldu"]
+atlas = ExtResource("1_k0o3q")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t6ea"]
+atlas = ExtResource("1_k0o3q")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lldlg"]
+atlas = ExtResource("1_k0o3q")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imwl1"]
+atlas = ExtResource("1_k0o3q")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihsrh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpsb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umldu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t6ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lldlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imwl1")
+}],
+"loop": true,
+"name": &"animate",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cnnpj"]
+radius = 3.63016
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sx657"]
+radius = 7.0
+height = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enos1"]
+radius = 118.052
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d8iw6"]
+radius = 6.69206
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rigqd"]
+radius = 3.03252
+
+[node name="Bat" type="CharacterBody2D"]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_r8vla")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ihsrh")
+animation = &"animate"
+frame_progress = 0.769405
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cnnpj")
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_odm6i")]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_sx657")
+
+[node name="Stats" parent="." instance=ExtResource("5_ro6n3")]
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource("6_gme2d")]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(0, -3.5)
+shape = SubResource("CircleShape2D_enos1")
+debug_color = Color(2.69532e-06, 0.791304, 0.92051, 0.42)
+
+[node name="Hitbox" parent="." instance=ExtResource("7_pwsu8")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0.37458, -12.361)
+shape = SubResource("CircleShape2D_d8iw6")
+
+[node name="SoftCollision" parent="." instance=ExtResource("8_xxjvk")]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" parent="SoftCollision" index="0"]
+shape = SubResource("CircleShape2D_rigqd")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+
+[editable path="Hurtbox"]
+[editable path="PlayerDetectionZone"]
+[editable path="Hitbox"]
+[editable path="SoftCollision"]

@@ -1,0 +1,78 @@
+ .flower {
+     font-family: 'Indie Flower';
+     color: #22223B;
+     text-align: center;
+ }
+
+ .montbody {
+     font-family: 'Montserrat';
+     color: #22223B;
+     text-align: left;
+ }
+
+ .whoare {
+     text-align: center;
+ }
+
+ body {
+     background-color: #C9ADA7;
+ }
+
+ li a:link {
+     color: darkslateblue;
+ }
+
+ li a:visited {
+     color: rgb(100, 8, 80);
+ }
+
+ #navBar {
+     border-bottom: 1px solid black;
+     background-color: #F2E9E4;
+     margin-bottom: auto;
+ }
+
+ .myimage {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+ .center {
+     text-align: center;
+ }
+
+ ul li ul li {
+     list-style-type: square;
+ }
+
+ .bevlist>li {
+     background-color: #9A8C98;
+ }
+
+ .below {
+     clear: right;
+ }
+
+ .cafepic {
+     float: right
+ }
+
+ #header {
+     position: fixed;
+     width: 100%;
+     top: 0px;
+     left: 0;
+     padding: 0em;
+ }
+
+ .help {
+     color: #C9ADA7;
+ }
+
+ #navBar a:visited{
+    color: rgb(100, 8, 80);
+ }
+ #navBar a:link {
+    color: darkslateblue;
+}

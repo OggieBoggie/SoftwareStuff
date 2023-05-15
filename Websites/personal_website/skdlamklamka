@@ -1,0 +1,197 @@
+[33mcommit d1c09481cbc5225a90e6297066b107c5b31d2b27[m[33m ([m[1;36mHEAD -> [m[1;32mLab6[m[33m)[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Sat Nov 5 10:46:55 2022 -0700
+
+    Added CSS elements to hr elements on page
+
+[33mcommit 4f0a828f09fb8e0a413fc87a8be43153f7dd33c1[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Sat Nov 5 10:43:07 2022 -0700
+
+    Added hr elements to page
+
+[33mcommit 5fdb505781a4a754f8be8ff8d07f75609f45a4ee[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Sat Nov 5 10:34:05 2022 -0700
+
+    Added margin to space out the text
+
+[33mcommit dbf2276f25a846ca8f8b906ea2f1defdd5bea45c[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Sat Nov 5 10:08:46 2022 -0700
+
+    Added description to courses
+
+[33mcommit dd3ee41aa46961ebe85e1840341fad11b025da7e[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Sat Nov 5 10:04:57 2022 -0700
+
+    Added new stylesheet for course specific
+
+[33mcommit be9515805f86129f38eab141efc0ae3df98ce843[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m, [m[1;32mLab5[m[33m)[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Sat Oct 29 11:11:53 2022 -0700
+
+    Tried to align image and paragraph text with gridbox but couldn't do it
+
+[33mcommit 39af7ae4ed665cc012ca33c1a08d358424fca0d1[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Sat Oct 29 10:28:14 2022 -0700
+
+    About me text added
+
+[33mcommit 248bd7f40b69b38e668dfef2558c96a6fdd6bb9e[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Sat Oct 29 10:25:38 2022 -0700
+
+    Fixed header and footer by changing margin
+
+[33mcommit ede3a0fad7c3a78077d5c7a0a3eca03b5dc16456[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Oct 26 18:08:13 2022 -0700
+
+    Added header and footer to school.html
+
+[33mcommit dd7dc5811e5dfb550d72d83b1bcaaf781a538180[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Oct 26 18:05:56 2022 -0700
+
+    Added header and footer to courses.html
+
+[33mcommit 9afad31438fc0e1cf6466d721cfcea92e9fbae02[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Oct 26 17:08:15 2022 -0700
+
+    Started writing paragraphs for main
+
+[33mcommit 3700d520cd985376d1febcb33ecf6a2cb3e16b7d[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Oct 26 17:04:29 2022 -0700
+
+    Added footer with copyright to index.html
+
+[33mcommit 4f5668534d150f0aba06667dcba4ac4713782e09[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Oct 26 17:00:40 2022 -0700
+
+    Added header to index.html
+
+[33mcommit 22d247ccae2090eb250a554115727949cc162f0b[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Oct 26 16:47:52 2022 -0700
+
+    Added class with flexbox for header
+
+[33mcommit 5d6f75e2665e987929c8597bcaa65e7922995498[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Oct 19 11:24:46 2022 -0700
+
+    Removed h1 tag from school html
+
+[33mcommit 8c36a89ce99f59bfaa381fb4a8b02abdbdc0c6bf[m[33m ([m[1;32mlab4[m[33m)[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Thu Oct 6 11:47:02 2022 -0700
+
+    Created a courses.html link and then applied html elements and links to courses.html
+
+[33mcommit e04fef763a5d73bdc2341c73951fb48890eb5faf[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Thu Oct 6 11:30:30 2022 -0700
+
+    Applied navigation elements to school.html and centered it.
+
+[33mcommit 6c96970038afd04abb326b2220657d167e3b4edf[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Thu Oct 6 11:23:42 2022 -0700
+
+    Centered everything on the index.html page
+
+[33mcommit 2218d7cc66c4c43cc1930f2e605b4c19366422ff[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Thu Oct 6 11:02:47 2022 -0700
+
+    Made a school.html, editing it with basic features like head, body, title and link to BCIT with image and header
+
+[33mcommit f8f474b91a7703df9799add8b00f1efd07eb618b[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Thu Oct 6 10:54:28 2022 -0700
+
+    Finished Navigation to school and courses
+
+[33mcommit 9f545e635002756e15dd1d8d9b4abab2e6f34ee7[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Thu Oct 6 10:51:42 2022 -0700
+
+    Fixed CSS with more class ids, then added google fonts to links
+
+[33mcommit 3610d971db208868a10ec1abdf9a52b49f389c47[m
+Author: OggieBoggie <tommy.nguyen.vanc@gmail.com>
+Date:   Thu Oct 6 10:30:22 2022 -0700
+
+    Moved around courses and school link and redited CSS with class tags
+
+[33mcommit 767fa501c311632055fd7f6fe542dad4b81108a1[m[33m ([m[1;32mlab3[m[33m)[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 28 18:41:32 2022 -0700
+
+    Fixed error with nav in wrong place
+
+[33mcommit 3f0dce05ad120b9d231b252fe10a4bcbda85415e[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 28 18:39:07 2022 -0700
+
+    Added Image of me and put correct dimensions + alt text
+
+[33mcommit 7d404dec3da332f40944d1fc08e6f6ce90ebc7e1[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 28 18:13:10 2022 -0700
+
+    Added Clickable link to BCIT logo with new tab and description
+
+[33mcommit f930fe92c871605275e772ec4267d3a42fe00d17[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 28 18:06:37 2022 -0700
+
+    Added BCIT Logo with alt text and width height next to courses
+
+[33mcommit 24d5e077b9accc5148e11af5d47bb92533338cc0[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 28 17:50:23 2022 -0700
+
+    Added CSS elements for background, paragraph, headings and links
+
+[33mcommit 99b348bf3b00e798c361c984157fb288153c9529[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 28 13:47:31 2022 -0700
+
+    Update semantic with more section tags
+
+[33mcommit 3db0e2dad83c04aeb84e7f0b5a6e12bab88ea85f[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 28 13:44:24 2022 -0700
+
+    Added appropriate semantic tags for index
+
+[33mcommit e3b2647a5b97ef279bf59fe102304280b2d4178b[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 28 12:58:12 2022 -0700
+
+    Added two new folders for CSS and pictures
+
+[33mcommit d78f00cb6fdf3e5d45333354e4da47f97e2aa8b5[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 28 12:42:05 2022 -0700
+
+    Added new branch for lab3 assignment
+
+[33mcommit f04af7637312a1728504bf3cd99cd1fbbf117edd[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 21 14:06:41 2022 -0700
+
+    For lab 2 assignment
+
+[33mcommit 93d29345774fb20b7877aac05a165e3c40162474[m
+Author: Tommy <tommy.nguyen.vanc@gmail.com>
+Date:   Wed Sep 21 13:23:29 2022 -0700
+
+    For Lab 2 Assignment

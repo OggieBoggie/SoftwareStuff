@@ -1,0 +1,110 @@
+body {
+    background-color: #edddd4;
+}
+
+main {
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.section img {
+    width: 490px;
+    height: 367px;
+    display: flex;
+    margin-left: 900px;
+}
+
+.headheader {
+    font-family: 'Montserrat', sans-serif;
+    color: #334259;
+    display: flex;
+    justify-content: center;
+}
+
+.list-nav {
+    display: flex;
+    justify-content: center;
+
+}
+
+.list-nav li {
+    margin: 10px;
+    list-style-type: none;
+}
+
+header {
+    background-color: #A6CAD4;
+    grid-column: 1/4;
+}
+
+footer {
+    background-color: #A6CAD4;
+    grid-column: 1/4;
+}
+
+.foot {
+    display: flex;
+    justify-content: center;
+}
+
+.foot p {
+    margin: 0px;
+}
+
+header h1 {
+    margin: 0px;
+}
+
+header ul {
+    margin: 0px;
+}
+
+
+
+
+/* }
+.coursehead {
+    color:#c7522a;
+}
+
+.schoolhead {
+    color: #c7522a;
+    text-align: center;
+}
+
+.navigation {
+    background-color: lightblue;
+    text-align: center;
+}
+
+.myimage{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pcenter{
+    text-align: center;
+}
+
+.headnav {
+    color:#008585;
+    text-align: center;
+}
+
+.headgo {
+    color:#e12729;
+}
+
+body {
+    color:#008585;
+    font-family: 'Roboto', sans-serif;
+    background-color:#fbf2c4;
+    text-align: left;
+}
+
+li {
+    color:#c7522a;
+    text-align: left;
+} */
