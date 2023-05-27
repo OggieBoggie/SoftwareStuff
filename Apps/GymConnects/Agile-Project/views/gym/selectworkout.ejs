@@ -1,0 +1,342 @@
+<link rel="stylesheet" href="selectworkout.css">
+<header class="p-3 mb-2 bg-dark text-white">
+    <h1>Select Workout</h1>
+    <div class="input-group mt-4">
+        <input type="text" class="form-control filterInput" aria-label="Text input with dropdown button" placeholder="search">
+        <div class="filterButton input-group-append">
+          <button class="btn btn-outline-secondary dropdown-toggle filterDropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name</button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item equipmentFilterButton">Equipment</button>
+            <button class="dropdown-item gymFilterButton">Gym</button>
+            <button class="dropdown-item nameFilterButton">Name</button>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+      </div>
+      <div class="gymNameULdiv" style="float: left;position: absolute;width: 89.5%;">
+        <ul class='gymNameUL ' style="display:none; list-style:none; background-color:white; padding:0">
+          <% for (let gym of passGymArray) { %>
+            <li> 
+              <ul class=gymEquipmentUL style="list-style: none; padding:0;" >
+                <li class="gymName" style="color:rgb(55, 61, 67); margin:0; padding:5px; border-bottom-style: groove; border-bottom-width: 1px;   border-left-style: groove; border-left-width: 1px;border-right-style: groove; border-right-width: 1px; ;"><%= gym.name %></li>
+              <% for (let e of gym.equipment) { %>
+                <li class='gymEquipment' style="display:none"> <%= e.name %></li>
+              <% } %>
+              </ul> 
+              </li>
+            <% } %>
+        </ul>
+      </div>
+ 
+      <!-- class="d-flex align-items-start flex-row bd-highlight ml-4 workoutDiv" -->
+
+</header>
+<aside>
+    <p class="text-center fs-4"><b>Choose from any of the pre-made workouts below. Can't find what you're looking for, use the search bar above!</b></p>
+    <hr class="mb-4"/>
+  <div class="d-flex flex-column">
+        <div class="d-flex align-items-start flex-row bd-highlight ml-4 workoutDiv">
+            <% for (let w of workouts) { %>
+                <a type="button" class="workoutButton btn border-secondary ml-2 mb-3" href=<%= "/selectworkout/" + w.id %>><%= w["name"] %></a>
+            <% } %>
+        </div>
+      <div>
+        <!-- <div class="d-flex flex-row justify-content-between flex-wrap" style="width: 100%;"> -->
+          <% if (selectedWorkout) { %>
+            <div class="card m-4">
+              <div class="card-header"><b>
+                Workout Overview, Warm-Up, & Cool-Down</b>
+              </div>
+              <div class="card-body">
+                <ol class="card-text">
+                  <li class="card-text">Warm-Up: 5-10 minutes of light cardio (such as jogging or jumping jacks) to get your heart rate up and warm up your muscles.</li>
+                  <li class="card-text">Complete each exercise in a circuit-style format for the prescribed sets and reps (ie. complete exercise 1, 2, 3...etc. then back to the beginning)</li>
+                  <li class="card-text">Cool-Down: 5-10 minutes of light cardio (such as walking or cycling) to gradually lower your heart rate.
+                    Stretching for all major muscle groups, holding each stretch for 20-30 seconds.</li>
+                  <li class="card-text"><b><i>Remember to use a weight that is comfortable for you, focus on proper form, and take breaks as needed.</i></b></li>
+                </ol>
+              </div>
+            </div>
+            <div class="d-flex flex-row justify-content-between flex-wrap" style="width: 100%;">
+              <% for (let e of exercise_objects) { %>
+          <!-- <div class="card text-white bg-dark mb-3 ml-5 mr-5" >
+              <div class="card-header card-title"><%= e.exercise %></div>
+              <div class="card-body">
+                  <p class="card-text"><%= e.description %></p>
+                <p class="card-text">Equipment Needed: <% for (let n of e.equipment) { %><%= n %><% } %></p>
+                <p class="card-text">Muscle Groups: <% for (let m of e.muscleGroups) { %><%= m %><% } %></p>
+              </div> -->
+              <div class="card border-dark bg-light m-2" style="width: 21rem;">
+                <iframe allow="fullscreen" class="card-img-top" src="<%= e.video %>"></iframe>
+                <div class="card-header"><b><%= e.exercise %></b></div>
+                <div class="card-body text-dark">
+                  <p class="card-text"><%= e.description %></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item border-dark bg-light">Sets: <%= e.sets %></li>
+                  <li class="list-group-item border-dark bg-light">Reps: <%= e.reps %></li>
+                  <li class="list-group-item border-dark bg-light">Equipment Needed: <% for (let n of e.equipment) { %><%= n %><% } %></li>
+                  <li class="list-group-item border-dark bg-light">Muscle Groups: <% for (let m of e.muscleGroups) { %><%= m %><% } %></li>
+                </ul>
+           </div><% } } %>
+        </div>
+    </div>
+</aside>
+
+<div style="display:none;">
+  <ul  class="workoutEquipmentUL" style="display:none">
+    <% for (let workoutEquipmentObj of workoutEquipmentNeededArray) { %>
+      <li>
+    <ul class="workoutEquipmentObjUL" style="display:none">
+    <li class="workoutName" style="display:none"><%= workoutEquipmentObj.name %></li>
+    <% for (let eq of workoutEquipmentObj.equipmentNeeded) { %>
+    <li class="workoutEquipment" style="display:none"> <%= eq %></li>
+    <% } %>
+    </ul>
+    </li>
+    <% } %>
+    </ul>
+  </div>
+
+
+<script>
+
+// Set all needed query slectors
+const filterInput = document.querySelector(".filterInput")
+const filterDropdown = document.querySelector(".filterDropdown")
+const workoutDiv = document.querySelector('.workoutDiv')
+const workoutButtonArray = document.querySelectorAll('.workoutButton')
+const gymULArray = document.querySelectorAll('.gymEquipmentUL')
+const gymNameUL = document.querySelector('.gymNameUL')
+const currentGym = document.querySelector('.currentGym')
+const workoutEquipmentULArray = document.querySelectorAll('.workoutEquipmentObjUL')
+const gymFilterButton = document.querySelector('.gymFilterButton')
+const equipmentFilterButton = document.querySelector('.equipmentFilterButton')
+const nameFilterButton = document.querySelector('.nameFilterButton')
+const dropdownShow = document.querySelector('.filterButton')
+const gymNameLIArray = document.querySelectorAll('.gymName')
+
+/////////////////////////////////////////////////////////////////////////
+
+// initialize gym array
+const parsedGymArray = []
+///////////////////////////
+
+// populates gym array from database info that was passed into HTML////
+for (let gym of gymULArray) {
+  
+  gym.classList.add('currentGym')
+  let currentGym = document.querySelector('.currentGym')
+  let currentGymName = document.querySelector('.currentGym>.gymName')
+  let currentGymEquipment = document.querySelectorAll('.currentGym>.gymEquipment')
+
+
+  let gymObject = {
+    name: `${currentGymName.textContent}`,
+    equipment: [' none']
+  }
+  for (let e of currentGymEquipment) {
+    gymObject.equipment.push(`${e.textContent}`)
+  }
+  parsedGymArray.push(gymObject)
+  gym.classList.remove('currentGym')
+}
+console.log(parsedGymArray)
+//////////////////////////////////////////////////////////////////
+
+// creates gym name array
+let gymNameArray = []
+for (gym of parsedGymArray) {
+  gymNameArray.push(gym.name.toLowerCase())
+}
+
+
+// initializes a workout array
+workoutArray = []
+//////////////////////////////
+
+// populates workout array
+for (let workout of workoutButtonArray) {
+  workoutArray.push(workout.textContent.toLowerCase())
+}
+console.log(workoutArray)
+////////////////////////////////////////////////////
+
+// initializes a workout equipment array
+const workoutEquipmentArray = []
+///////////////////////////////////////////
+
+// populates workout equipment array
+for (let workout of workoutEquipmentULArray) {
+  workout.classList.add('currentWorkout')
+
+  let currentWorkout = document.querySelector('.currentWorkout')
+  let currentWorkoutName = document.querySelector('.currentWorkout>.workoutName')
+  let currentWorkoutEquipment = document.querySelectorAll('.currentWorkout>.workoutEquipment')
+  console.log(currentWorkoutEquipment)
+
+  let workoutEquipmentObj = {
+    name: `${currentWorkoutName.textContent}`,
+    equipment: []
+  }
+
+  for (let equipment of currentWorkoutEquipment) {
+    workoutEquipmentObj.equipment.push(`${equipment.textContent}`)
+  }
+
+  workoutEquipmentArray.push(workoutEquipmentObj)
+  workout.classList.remove('currentWorkout')
+}
+console.log(workoutEquipmentArray)
+//////////////////////////////////////////////////////////////////////
+
+
+
+function organizeList() {
+  console.log(' ')
+  if (filterDropdown.innerHTML.toLowerCase() === 'equipment'){
+    for (let workout of workoutButtonArray) {
+
+      console.log(workout.innerHTML)
+      
+      ////////////////
+      for (let we of workoutEquipmentArray) {
+        if (we.name.toLowerCase() === workout.innerHTML.toLowerCase()) {
+          let success = false
+          for (let e of we.equipment) {
+            if (e.toLowerCase().includes( filterInput.value.toLowerCase()) ){
+              success = true
+              break
+            }
+
+          } 
+
+          if (success === true) {
+            workout.style.display = 'inline-block'
+          } else {
+            workout.style.display = 'none'
+          }
+        }
+        ////////////////
+        
+      }
+      ///////////////////
+    }
+    ////////////////
+
+
+  } else if (filterDropdown.innerHTML.toLowerCase() === 'gym') {
+
+
+    gymNameUL.style.display = 'block'
+    for(let gymLi of gymNameLIArray) {
+      if (gymLi.innerHTML.toLowerCase().includes(filterInput.value.toLowerCase())=== false){
+        gymLi.style.display = 'none'
+        gymLi.style.padding = '0'
+      } else {
+        if (gymLi.innerHTML.toLowerCase() === filterInput.value.toLowerCase()){
+          gymLi.style.display = 'none'
+          gymLi.style.padding = '0'
+        } else {
+        gymLi.style.display = 'list-item'
+        gymLi.style.padding = '5px'
+      }
+    }
+    }
+
+
+
+    if (gymNameArray.includes(filterInput.value.toLowerCase())) {
+      for (let workout of workoutButtonArray) {
+        let displayWorkout = true // two
+        let thisWorkoutEquipment = undefined // two
+
+        for (let workoutEquipment of workoutEquipmentArray) {
+          if (workout.innerHTML.toLowerCase() === workoutEquipment.name.toLowerCase()) {
+            
+            thisWorkoutEquipment = workoutEquipment.equipment
+        } // four
+
+      } // three
+      for (let gym of parsedGymArray) {
+          if (gym.name.toLowerCase() === filterInput.value.toLowerCase()) {
+            for (let eq of thisWorkoutEquipment) {
+              let success = false
+               for (let e of gym.equipment ){
+                if (e === eq) {
+                  success = true
+                  break
+                }
+
+              } 
+              if (success === false){
+                displayWorkout = false
+              }
+              
+            } // five
+          } // four
+        } // three
+        if (displayWorkout === false) {
+          workout.style.display = 'none'
+        } else {
+          workout.style.display = 'inline-block'
+
+        }
+      } //two
+
+    } else {
+      for (let workout of workoutButtonArray) {
+        workout.style.display = 'inline-block'
+      }
+    }// one
+
+
+  } else {
+    for (let workout of workoutButtonArray) {
+      if (workout.innerHTML.toLowerCase().includes(filterInput.value.toLowerCase()) === false) {
+        workout.style.display = 'none'
+      } else {
+        workout.style.display = 'inline-block'
+      }
+    }
+  }
+
+}
+
+
+
+function selectFilter2(e){
+  if (e.target.textContent === 'Name') {
+    filterDropdown.textContent = 'Name'
+    gymNameUL.style.display = 'none'
+    filterInput.value = ''
+  } else if (e.target.textContent === 'Gym'){
+    filterDropdown.textContent = 'Gym'
+    gymNameUL.style.display = 'block'
+    filterInput.value = ''
+  } else {
+    filterDropdown.textContent = 'Equipment'
+    gymNameUL.style.display = 'none'
+    filterInput.value = ''
+  }
+  organizeList()
+  for (workout of workoutButtonArray) {
+    workout.style.display = 'inline-block'
+  }
+}
+
+function selectGym (e) {
+  filterInput.value = e.target.textContent
+  organizeList()
+}
+
+filterInput.addEventListener('keyup', organizeList)
+dropdownShow.addEventListener('click', selectFilter2)
+gymNameUL.addEventListener('click', selectGym)
+
+
+
+
+</script>
+

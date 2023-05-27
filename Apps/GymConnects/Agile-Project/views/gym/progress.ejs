@@ -1,0 +1,45 @@
+<head>
+  <title>Progress Page</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="progress.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <main>
+    <header class="bg-dark text-white">
+      <h1>Check Progress</h1>
+      <div class="container">
+        <a class="btn btn-success btn-lg" id="space" href="/progress/new">+ Add Session</a>
+        <a class="btn btn-light btn-lg" id="space" onclick="sortColumn(0)">Filter Date</a>
+        <a class="btn btn-light btn-lg" id="space" onclick="sortColumn(1)" >Filter Type</a>
+        <a class="btn btn-light btn-lg" id="space" href="/progress/calendar">Calendar View</a>
+        <input type="text" name="search" id="searchInput" class="search" placeholder="Search session details" onkeyup="handleSearch()">
+      </div>
+    </header>
+    <div id="space">
+
+    </div>
+    <table class="content-table table-sortable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Type</th>
+          <th class="session-details">Session Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i = 0; i < progressReports.length; i++) { %>
+          <tr>
+            <td><%= progressReports[i].date %></td>
+            <td><%= progressReports[i].type %></td>
+            <td><%= progressReports[i].details %></td>
+          </tr>
+        <% } %>
+      </tbody>
+      </ul>
+  </main>
+  <script src="progress.js"></script>
+</body>
